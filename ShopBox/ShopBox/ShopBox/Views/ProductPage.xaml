@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopBox.Views.ProductPage"
+             xmlns:controls="clr-namespace:ShopBox.UserControl;assembly=ShopBox"
+             Title="ProductPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ActivityIndicator   IsVisible="{Binding IsIndicatorLoading}" IsEnabled="{Binding IsIndicatorLoading}"  IsRunning="True" x:Name="Indicator" />
+
+            <controls:GridView
+		    x:Name="listView"
+            IsGroupingEnabled="false"
+            ItemsSource="{Binding Products}"
+            RowHeight="130"    
+			MinItemWidth="230">
+                <controls:GridView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:GridViewXamlCell>
+                            <Grid Padding="5" >
+                                <Grid  BackgroundColor="Gray"  Padding="10" >
+                                    <Image Source="client.png" Aspect="AspectFit"/>
+                                    <Label TextColor="Green" Text="{Binding name}" FontSize="Small"  HorizontalOptions="End" VerticalOptions="Fill"/>
+                                    <Label TextColor="Green" Text="{Binding selling_price}" VerticalOptions="Center" HorizontalOptions="End" FontSize="Small"  />
+                                    <Label TextColor="Green" Text="{Binding stock_price}" VerticalOptions="End" HorizontalOptions="End" FontSize="Small"  />
+                                </Grid>
+                            </Grid>
+                        </controls:GridViewXamlCell>
+                    </DataTemplate>
+                </controls:GridView.ItemTemplate>
+            </controls:GridView>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

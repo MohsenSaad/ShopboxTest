@@ -1,0 +1,2 @@
+C:\Users\mahmoumo\Music\ShopBox\ShopBox\ShopBox.UWP\ShopBox.UWP.csproj;x86
+C:\Users\mahmoumo\Music\ShopBox\ShopBox\ShopBox\ShopBox.csproj;neutral

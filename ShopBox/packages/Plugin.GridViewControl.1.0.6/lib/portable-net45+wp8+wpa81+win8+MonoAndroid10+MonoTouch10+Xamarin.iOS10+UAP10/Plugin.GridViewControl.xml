@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.GridViewControl</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.GridViewControl.Common.FastGridCell">
+            <summary>
+            Abstract view cell with callbacks for drawing the cell in the code behind (InitializeCell)
+            and updating the cell based on the binding context (SetupCell). 
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.FastGridCell.IsInitialized">
+            <summary>
+            Gets whether the cell has been initialized i.e. the view has been declared.
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.FastGridCell.CellSize">
+            <summary>
+            Gets the size of the cell.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.PrepareCell(Xamarin.Forms.Size)">
+            <summary>
+            passes in the cell size as a convenience
+            </summary>
+            <param name="cellSize">Cell size.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.OnBindingContextChanged">
+            <summary>
+            Update the cell when the binding context changes.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.InitializeCell">
+            <summary>
+            Setups the cell. You should call InitializeComponent in here
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.SetupCell(System.Boolean)">
+            <summary>
+            Do your cell setup using the binding context in here.
+            </summary>
+            <param name="isRecycled">If set to <c>true</c> is recycled.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.OnSizeChanged(Xamarin.Forms.Size)">
+            <summary>
+            Called when the size of the view changes. Override to do layout task if required
+            </summary>
+            <param name="size">Size.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.FastGridCell.OnScroll(Xamarin.Forms.Point,Xamarin.Forms.Point)">
+            <summary>
+            Override if you are intereted in when a cell moves (for parallaxe effects etc)
+            </summary>
+            <param name="contentOffset">Content offset.</param>
+            <param name="cellLocation">Cell location.</param>
+        </member>
+        <member name="T:Plugin.GridViewControl.Common.GridViewXamlCell">
+            <summary>
+            Implementation of FastGridCell with empty Initialize And Setup cell calls i.e.
+            the view cell must be declared in XAML 
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridViewXamlCell.InitializeCell">
+            <summary>
+            Layout the cell structure.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridViewXamlCell.SetupCell(System.Boolean)">
+            <summary>
+            Update the cell based on the binding context.
+            </summary>
+            <param name="isRecycled">Indicates whether the cell is being re-used.</param>
+        </member>
+        <member name="T:Plugin.GridViewControl.Common.IGridViewProvider">
+            <summary>
+            Interface for providing scroll access to underlying grid control
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.IGridViewProvider.ReloadData">
+            <summary>
+            Repopulate the grid view with items.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.IGridViewProvider.ScrollToItemWithIndex(System.Int32,System.Boolean)">
+            <summary>
+            Scroll to the item at the specified index.
+            </summary>
+            <param name="index">The index to scroll to.</param>
+            <param name="animated">Whether the scrolling should be animated.</param>
+        </member>
+        <member name="T:Plugin.GridViewControl.Common.ControlScrollEventArgs">
+            <summary>
+            Arguments for a scroll event on the gridview.
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.ControlScrollEventArgs.Delta">
+            <summary>
+            The delta.
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.ControlScrollEventArgs.CurrentY">
+            <summary>
+            The current vertical position.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.ControlScrollEventArgs.#ctor(System.Single,System.Single)">
+            <summary>
+            Initialize a new instance of the ControlScrollEventArgs
+            </summary>
+            <param name="delta">The delta</param>
+            <param name="currentY">The current vertical position.</param>
+        </member>
+        <member name="T:Plugin.GridViewControl.Common.IScrollAwareElement">
+            <summary>
+            Interface for providing scrol awareness.
+            </summary>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.IScrollAwareElement.OnStartScroll">
+            <summary>
+            When the scrolling begins.
+            </summary>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.IScrollAwareElement.OnStopScroll">
+            <summary>
+            When the scrolling ends.
+            </summary>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.IScrollAwareElement.OnScroll">
+            <summary>
+            When the list is scrolled.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.IScrollAwareElement.RaiseOnScroll(System.Single,System.Single)">
+            <summary>
+            Raise the on scroll event.
+            </summary>
+            <param name="delta">The delta.</param>
+            <param name="currentY">The current position.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.IScrollAwareElement.RaiseOnStartScroll">
+            <summary>
+            Raise the start scroll event.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.IScrollAwareElement.RaiseOnStopScroll">
+            <summary>
+            Raise the stop scroll event.
+            </summary>
+        </member>
+        <member name="T:Plugin.GridViewControl.Common.GridView">
+            <summary>
+            Class GridView.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.GridViewControl.Common.GridView"/> class.
+            </summary>
+        </member>
+        <member name="F:Plugin.GridViewControl.Common.GridView.TappedCommandProperty">
+            <summary>
+            Command for when a child item is pressed.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.GetTappedCommand(Xamarin.Forms.BindableObject)">
+            <summary>
+            Gets the tapped command on the specified view.
+            </summary>
+            <param name="view">The view to retrieve the property from.</param>
+            <returns>The tapped command from the specified view.</returns>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.SetTappedCommand(Xamarin.Forms.BindableObject,System.Boolean)">
+            <summary>
+            Sets the tapped command on the specified view.
+            </summary>
+            <param name="view">The view to set the property on.</param>
+            <param name="value">The value of the property.</param>
+        </member>
+        <member name="F:Plugin.GridViewControl.Common.GridView.MinItemWidthProperty">
+            <summary>
+            The item width property
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.GetMinItemWidth(Xamarin.Forms.BindableObject)">
+            <summary>
+            Get the min item width from the specified view.
+            </summary>
+            <param name="view">The view to retrieve the property from.</param>
+            <returns>The value of the min item width from the specified view.</returns>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.SetMinItemWidth(Xamarin.Forms.BindableObject,System.Boolean)">
+            <summary>
+            Sets the min item width on the specified view.
+            </summary>
+            <param name="view">the view to set the property on.</param>
+            <param name="value">The value of the property.</param>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.GridView.TappedCommand">
+            <summary>
+            Gets or sets the tapped command.
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.GridView.GridViewProvider">
+            <summary>
+            Gets or sets the grid view provider.
+            </summary>
+        </member>
+        <member name="P:Plugin.GridViewControl.Common.GridView.MinItemWidth">
+            <summary>
+            Gets or sets the width of the item.
+            </summary>
+            <value>The width of the item.</value>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.OnTappedCommandPropertyChanged(Xamarin.Forms.BindableObject,System.Object,System.Object)">
+            <summary>
+            Attach handling for list item tapped event.
+            </summary>
+            <param name="view">The source of the property change.</param>
+            <param name="oldValue">The original value of the property.</param>
+            <param name="newValue">The new value of the property.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.List_ItemTapped(System.Object,Xamarin.Forms.ItemTappedEventArgs)">
+            <summary>
+            Callback when an item in the list view is tapped.
+            </summary>
+            <param name="sender">System.Object repersenting the source of the event.</param>
+            <param name="e">The arguments for the event.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.InvokeItemSelectedEvent(System.Object,System.Object)">
+            <summary>
+            Invokes the item selected event.
+            </summary>
+            <param name="sender">System.Object repersenting the source of the event.</param>
+            <param name="item">The arguments for the event.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.ReloadData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.ScrollToItemWithIndex(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="animated"></param>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.GridView.OnStartScroll">
+            <summary>
+            When scrolling begins.
+            </summary>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.GridView.OnStopScroll">
+            <summary>
+            When scrolling ends.
+            </summary>
+        </member>
+        <member name="E:Plugin.GridViewControl.Common.GridView.OnScroll">
+            <summary>
+            When the list is scrolled.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.RaiseOnScroll(System.Single,System.Single)">
+            <summary>
+            Raise the on scroll event.
+            </summary>
+            <param name="delta">The delta.</param>
+            <param name="currentY">The current position.</param>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.RaiseOnStartScroll">
+            <summary>
+            Raise the start scroll event.
+            </summary>
+        </member>
+        <member name="M:Plugin.GridViewControl.Common.GridView.RaiseOnStopScroll">
+            <summary>
+            Raise the stop scroll event.
+            </summary>
+        </member>
+    </members>
+</doc>

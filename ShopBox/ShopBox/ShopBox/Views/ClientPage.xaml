@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopBox.Views.ClientPage"
+             Title="ClientPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ActivityIndicator  IsVisible="{Binding IsIndicatorLoading}" IsEnabled="{Binding IsIndicatorLoading}"  IsRunning="True" x:Name="Indicator" />
+            <ListView Grid.Row="0" 
+                x:Name="Clients"
+                RowHeight="100"
+                SelectedItem="{Binding SelectedClientItem,Mode=TwoWay}"
+                ItemsSource="{Binding Clients}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell TextColor="Green"   ImageSource="client.png" Detail="{Binding email}" DetailColor="Gray" Text="{Binding name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
