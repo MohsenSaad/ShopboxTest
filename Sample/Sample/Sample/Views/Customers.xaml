@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Sample.Views.Customers"
+             Title="Customers">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ActivityIndicator  IsVisible="False" IsEnabled="False"  IsRunning="True" x:Name="Indicator" />
+            <ListView Grid.Row="0" 
+                x:Name="Clients"
+                RowHeight="100"
+                SelectedItem="{Binding SelectedEmploye,Mode=TwoWay}"
+                ItemsSource="{Binding Employe}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ImageCell TextColor="Green"   ImageSource="client.png" Detail="{Binding Email}" DetailColor="Gray" Text="{Binding Name}"/>
+                        <controls.CircleImage Source="client.png" aspect="AspectFill">
+                        </controls.CircleImage>
+                    
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

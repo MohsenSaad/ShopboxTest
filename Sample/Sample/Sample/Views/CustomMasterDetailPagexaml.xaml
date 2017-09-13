@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="Sample.Views.CustomMasterDetailPagexaml">
+    <MasterDetailPage.Master>
+       
+        <ContentPage Title="Menu">
+            <StackLayout Orientation="Vertical"  VerticalOptions="FillAndExpand" BackgroundColor="Green" Padding="50">
+                <Button x:Name="navigate" Text="GoTo Customers" Command="{Binding NavigateCommand}"/>
+            </StackLayout>
+        </ContentPage>
+ 
+    </MasterDetailPage.Master>
+</MasterDetailPage>

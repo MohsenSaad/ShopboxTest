@@ -23028,16 +23028,16 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\mahmoumo\\Music\\ShopBox\\ShopBox\\ShopBox.UWP\\ShopBox.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\mahmoumo\\Documents\\GitHub\\ShopboxTest\\ShopBox\\ShopBox\\ShopBox.UWP\\ShopBox.UWP.csproj",
       "projectName": "ShopBox.UWP",
-      "projectPath": "C:\\Users\\mahmoumo\\Music\\ShopBox\\ShopBox\\ShopBox.UWP\\ShopBox.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\mahmoumo\\Music\\ShopBox\\ShopBox\\ShopBox.UWP\\project.json",
+      "projectPath": "C:\\Users\\mahmoumo\\Documents\\GitHub\\ShopboxTest\\ShopBox\\ShopBox\\ShopBox.UWP\\ShopBox.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\mahmoumo\\Documents\\GitHub\\ShopboxTest\\ShopBox\\ShopBox\\ShopBox.UWP\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\Users\\mahmoumo\\Music\\ShopBox\\ShopBox\\ShopBox\\ShopBox.csproj": {
-              "projectPath": "C:\\Users\\mahmoumo\\Music\\ShopBox\\ShopBox\\ShopBox\\ShopBox.csproj"
+            "C:\\Users\\mahmoumo\\Documents\\GitHub\\ShopboxTest\\ShopBox\\ShopBox\\ShopBox\\ShopBox.csproj": {
+              "projectPath": "C:\\Users\\mahmoumo\\Documents\\GitHub\\ShopboxTest\\ShopBox\\ShopBox\\ShopBox\\ShopBox.csproj"
             }
           }
         }

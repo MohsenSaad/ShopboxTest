@@ -1,0 +1,2 @@
+C:\Users\mahmoumo\Documents\Visual Studio 2017\Projects\Sample\Sample\Sample.UWP\Sample.UWP.csproj;x86
+C:\Users\mahmoumo\Documents\Visual Studio 2017\Projects\Sample\Sample\Sample\Sample.csproj;neutral

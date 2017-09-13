@@ -24,6 +24,7 @@ namespace ShopBox.ViewModels
         DTOMapper mapper = new DTOMapper();
         object token;
         #endregion
+      
 
         #region constructor
         public ClientPageViewModel(INavigationService navigationService, IPageDialogService displayAlert)
@@ -31,6 +32,7 @@ namespace ShopBox.ViewModels
             _displayAlert = displayAlert;
             _navigationservice = navigationService;
            
+
         }
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
